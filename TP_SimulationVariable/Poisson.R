@@ -13,4 +13,17 @@ generatePoisson<- function(lambda,n){
   x
 }
 
+#Plot poisson
+plotPoisson<- function(n){
+  n = 500;
+  lambda = 3;
+  poisson = generatePoisson(lambda, n);
+  xPoisson <- seq(min(poisson), max(poisson), 1)
+  fPoisson <- replicate(n,0)
+  for(i in 1:n){
+    fPoisson[i] <- dim(which(poisson<xPoisson[i]))/n
+  } 
+  plot(xPoisson,fPoisson,'r')
+}
+
 
